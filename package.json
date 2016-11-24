@@ -1,6 +1,6 @@
 {
   "name": "jsonschema-builder",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Command line tool for mongoose-schema-jsonschema",
   "main": "index.js",
   "bin": {
@@ -30,5 +30,6 @@
   "bugs": {
     "url": "https://github.com/DScheglov/jsonschema-builder/issues"
   },
-  "homepage": "https://github.com/DScheglov/jsonschema-builder#readme"
+  "homepage": "https://github.com/DScheglov/jsonschema-builder#readme",
+  "readme": "readme.md"
 }
