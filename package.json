@@ -1,9 +1,11 @@
 {
   "name": "jsonschema-builder",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Command line tool for mongoose-schema-jsonschema",
   "main": "index.js",
-  "bin" : { "jsonschema-builder" : "./index.js" },
+  "bin": {
+    "jsonschema-builder": "./index.js"
+  },
   "scripts": {
     "test": "mocha"
   },
@@ -20,9 +22,7 @@
     "commander": "^2.9.0",
     "mongoose-schema-jsonschema": "^1.0.3"
   },
-  "devDependencies": {
-    "mocha": "^3.1.2"
-  },
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DScheglov/jsonschema-builder.git"
