@@ -1,8 +1,9 @@
 {
   "name": "jsonschema-builder",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "Command line tool for mongoose-schema-jsonschema",
   "main": "index.js",
+  "bin" : { "jsonschema-builder" : "./index.js" },
   "scripts": {
     "test": "mocha"
   },
@@ -16,6 +17,7 @@
   "author": "Dmitry Scheglov <Dmitry.Scheglov@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "commander": "^2.9.0",
     "mongoose-schema-jsonschema": "^1.0.3"
   },
   "devDependencies": {
