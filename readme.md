@@ -105,7 +105,7 @@ Output:
 ```javascript
 [
   {
-    "id": "$Book",
+    "id": "#book",
     "title": "Book",
     "type": "object",
     "properties": {
@@ -137,7 +137,7 @@ Output:
     ]
   },
   {
-    "id": "$Person",
+    "id": "#person",
     "title": "Person",
     "type": "object",
     "properties": {
