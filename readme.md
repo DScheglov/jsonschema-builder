@@ -69,7 +69,7 @@ jsonschema-builder ./models
 
 Output:
 ```javascript
-[ { id: '$Book',
+[ { id: '#book',
     title: 'Book',
     type: 'object',
     properties:
@@ -84,7 +84,7 @@ Output:
        _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
        __v: { type: 'number' } },
     required: [ 'title', 'author' ] },
-  { id: '$Person',
+  { id: '#person',
     title: 'Person',
     type: 'object',
     properties:
