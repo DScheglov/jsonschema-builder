@@ -1,7 +1,7 @@
 {
   "name": "jsonschema-builder",
-  "version": "1.0.4",
-  "description": "Command line tool for mongoose-schema-jsonschema",
+  "version": "1.0.5",
+  "description": "Command line tool for json-schema creation for mongoose models",
   "main": "index.js",
   "bin": {
     "jsonschema-builder": "./index.js"

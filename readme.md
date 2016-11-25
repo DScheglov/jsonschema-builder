@@ -23,13 +23,14 @@ jsonschema-builder --help
 
 Output:
 ```shell
-  Usage: jsonschema-builder [options] <pathToModels>
+  Usage: index [options] <pathToModels>
 
   Options:
 
     -h, --help     output usage information
     -V, --version  output the version number
     -j, --json     JSON format for output
+    -n, --noid     Removes id field from resulting schema
 ```
 
 ## Samples
@@ -299,11 +300,11 @@ Opening `models.json`:
 ]
 ```
 
-Please note that the result for array of models is different from result for
-first case when models are exported by object.
+Please note that the result for the array of models is different from the result
+for the first case when the models are exported by an object.
 
-In the first case (exports as object) the tool adds the `id` field to the
-resulting json schema. Currently there is no way to avoid this behavior.
+In the first case (exports as an object) the tool adds the `id` field to the
+resulting json schema. To avoid this behavior use `--noid` option.
 
 
 ## Customization
