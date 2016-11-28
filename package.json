@@ -19,10 +19,13 @@
   "author": "Dmitry Scheglov <Dmitry.Scheglov@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "colors": "^1.1.2",
     "commander": "^2.9.0",
     "mongoose-schema-jsonschema": "^1.0.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mongoose": "^4.7.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DScheglov/jsonschema-builder.git"
