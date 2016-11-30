@@ -1,8 +1,22 @@
 'use strict';
 
-module.exports = exports = {
-  modelBook: require('./models/book'),
-  modelPerson: require('./models/person')
-}
+const mongoose = require('mongoose');
 
-module.exports = {}
+const Schema = mongoose.Schema;
+
+const PointSchema = new Schema({
+  x: Number,
+  y: Number,
+  title: String
+});
+
+const LineSchema = new Schema({
+  start: PointSchema,
+  end: PointSchema,
+  title: String
+})
+
+module.exports = exports = {
+  Point: mongoose.model('Point', PointSchema),
+  Line: mongoose.model('Line', LineSchema)
+}

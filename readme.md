@@ -8,6 +8,13 @@ It supports two formats for resulting schemas:
  - javascript (produced by `console.dir(...)`)
  - json (produced by `JSON.stringify()`)
 
+## Contents
+ * [Installation](#installation)
+ * [Usage](#usage)
+ * [Samples](#samples)
+ * [Schema Id](#schema-id)
+ * [API](#api)
+ * [Contribution](#contribution)
 
 ## Installation
 ```shell
@@ -23,19 +30,36 @@ jsonschema-builder --help
 
 Output:
 ```shell
-  Usage: jsonschema-builder [options] <pathToModels>
+Usage: jsonschema-builder [options] <pathToModels>
 
-  Options:
+Options:
 
-    -h, --help     output usage information
-    -V, --version  output the version number
-    -j, --json     JSON format for output
-    -n, --noid     Removes id field from resulting schema
+  -h, --help        output usage information
+  -V, --version     output the version number
+  -d, --dir         Process <pathToModels> as a directory
+  -r, --recursive   Process directory recursively
+  -j, --json        JSON format for output
+  -n, --noid        Removes id field from resulting schema
+  -o, --object-def  Output as json-schema definitions object
+  -i, --id [style]  Style for json-schema identifiers
+  --no-color        Prevents colorized output
 ```
 
 ## Samples
 
-Guessing you have some module with a model definition:
+`jsonschema-builder` project includes some sample-model definitions that
+located in the **samples** in the project root directory.
+
+The structure is following
+
+.
++-- samples
+|   +-- models
+    |   +-- [book.js](https://github.com/DScheglov/jsonschema-builder/blob/master/samples/models/book.js)
+    |   +-- [person.js](https://github.com/DScheglov/jsonschema-builder/blob/master/samples/models/person.js)
+|   +-- [list.js](https://github.com/DScheglov/jsonschema-builder/blob/master/samples/list.js)
+|   +-- [models.js](https://github.com/DScheglov/jsonschema-builder/blob/master/samples/models.js)
+
 ```shell
 'use strict';
 // models.js
@@ -186,6 +210,7 @@ jsonschema-builder -j ./book > book.json
 Opening `book.json`:
 ```javascript
 {
+  "id": "#book",
   "title": "Book",
   "type": "object",
   "properties": {
@@ -239,6 +264,7 @@ Opening `models.json`:
 ```javascript
 [
   {
+    "id": "#book",
     "title": "Book",
     "type": "object",
     "properties": {
@@ -270,6 +296,7 @@ Opening `models.json`:
     ]
   },
   {
+    "id": "#person",
     "title": "Person",
     "type": "object",
     "properties": {
@@ -300,14 +327,15 @@ Opening `models.json`:
 ]
 ```
 
-Please note that the result for the array of models is different from the result
-for the first case when the models are exported by an object.
+## Schema id
+
+Please note that `jsonschema-builder` adds the `id` field to each schema
 
 In the first case (exports as an object) the tool adds the `id` field to the
 resulting json schema. To avoid this behavior use `--noid` option.
 
 
-## Customization
+## API
 
 The tool is just a command line interface for node-module `mongoose-schema-jsonschema`.
 So you could to import mentioned above module to your project and use it directly.

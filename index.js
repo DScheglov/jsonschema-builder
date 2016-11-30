@@ -19,7 +19,6 @@ if (module.parent) {
     .option('-o, --object-def', 'Output as json-schema definitions object')
     .option('-i, --id [style]', 'Style for json-schema identifiers', /^(camel|underline|dash|lower)$/i)
     .option('--no-color', 'Prevents colorized output')
-    .arguments('style', 'camel')
     .parse(process.argv);
 
   processModels(program.args[0], {
@@ -27,6 +26,7 @@ if (module.parent) {
     noid: !!program.noid,
     dir: !!program.dir,
     objectDef: !!program.objectDef,
-    id: typeof(program.id) === 'string' ? program.id : 'dash'
+    id: typeof(program.id) === 'string' ? program.id : 'dash',
+    recursive: !!program.recursive
   });
 }

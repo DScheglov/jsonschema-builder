@@ -24,6 +24,7 @@
     "mongoose-schema-jsonschema": "^1.0.3"
   },
   "devDependencies": {
+    "mocha": "^3.2.0",
     "mongoose": "^4.7.0"
   },
   "repository": {
