@@ -50,15 +50,16 @@ Options:
 `jsonschema-builder` project includes some sample-model definitions that
 located in the **samples** in the project root directory.
 
-The structure is following
+The structure is following:
 
-.
-+-- samples
-|   +-- models
-    |   +-- [book.js](https://github.com/DScheglov/jsonschema-builder/blob/master/samples/models/book.js)
-    |   +-- [person.js](https://github.com/DScheglov/jsonschema-builder/blob/master/samples/models/person.js)
-|   +-- [list.js](https://github.com/DScheglov/jsonschema-builder/blob/master/samples/list.js)
-|   +-- [models.js](https://github.com/DScheglov/jsonschema-builder/blob/master/samples/models.js)
+ - .
+ - /samples
+    - /models
+        - [book.js](https://github.com/DScheglov/jsonschema-builder/blob/master/samples/models/book.js)
+        - [person.js](https://github.com/DScheglov/jsonschema-builder/blob/master/samples/models/person.js)
+    - [list.js](https://github.com/DScheglov/jsonschema-builder/blob/master/samples/list.js)
+    - [models.js](https://github.com/DScheglov/jsonschema-builder/blob/master/samples/models.js)
+
 
 ```shell
 'use strict';
