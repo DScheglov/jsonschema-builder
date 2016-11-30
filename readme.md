@@ -1,5 +1,5 @@
 # jsonschema-builder
-Command line tool for `mongoose-schema-jsonschema`
+Command line tool to generate JSON-schemas by the Mongoose model definition
 
 The tool puts to standard output stream the json schema or an array of such
 schemas.
@@ -12,6 +12,7 @@ It supports two formats for resulting schemas:
  * [Installation](#installation)
  * [Usage](#usage)
  * [Samples](#samples)
+ * [Prepared samples](#prepared-samples)
  * [Schema Id](#schema-id)
  * [API](#api)
  * [Contribution](#contribution)
@@ -47,20 +48,7 @@ Options:
 
 ## Samples
 
-`jsonschema-builder` project includes some sample-model definitions that
-located in the **samples** in the project root directory.
-
-The structure is following:
-
- - .
- - /samples
-    - /models
-        - [book.js](https://github.com/DScheglov/jsonschema-builder/blob/master/samples/models/book.js)
-        - [person.js](https://github.com/DScheglov/jsonschema-builder/blob/master/samples/models/person.js)
-    - [list.js](https://github.com/DScheglov/jsonschema-builder/blob/master/samples/list.js)
-    - [models.js](https://github.com/DScheglov/jsonschema-builder/blob/master/samples/models.js)
-
-
+Guessing you have some module with a model definition:
 ```shell
 'use strict';
 // models.js
@@ -91,6 +79,7 @@ Building json schema in javascript-object format:
 ```shell
 jsonschema-builder ./models
 ```
+
 
 Output:
 ```javascript
@@ -328,22 +317,343 @@ Opening `models.json`:
 ]
 ```
 
+
+## Prepared samples
+
+`jsonschema-builder` project includes some sample model definitions that
+located in the **samples** folder in the project root directory.
+
+The structure is following:
+
+ - .
+ - /samples
+    - /models
+        - [book.js](https://github.com/DScheglov/jsonschema-builder/blob/master/samples/models/book.js)
+        - [person.js](https://github.com/DScheglov/jsonschema-builder/blob/master/samples/models/person.js)
+    - [list.js](https://github.com/DScheglov/jsonschema-builder/blob/master/samples/list.js)
+    - [models.js](https://github.com/DScheglov/jsonschema-builder/blob/master/samples/models.js)
+
+In order to run `jsonschema-builder` with prepared samples you should:
+```shell
+git clone https://github.com/DScheglov/jsonschema-builder.git
+cd jsonschema-builder
+npm install
+npm link
+```
+
+When you finish sample running, just do unlink:
+```shell
+cd jsonschema-builder
+npm unlink
+```
+
+Using the `jsonschema-builder` for single model:
+```shell
+jsonschema-builder samples/models/book
+```
+
+Output:
+```javascript
+{ id: '#book',
+  title: 'Book',
+  type: 'object',
+  properties:
+   { title: { type: 'string' },
+     year: { type: 'number' },
+     author:
+      { type: 'string',
+        'x-ref': 'Person',
+        description: 'Refers to Person',
+        format: 'uuid',
+        pattern: '^[0-9a-fA-F]{24}$' },
+     _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+     __v: { type: 'number' } },
+  required: [ 'title', 'author' ] }
+```
+
+To get schema for all models located in the **samples/models** directory in
+JSON format
+```shell
+jsonschema-builder --dir --json samples/models
+```
+
+```javascript
+[
+  {
+    "id": "#book",
+    "title": "Book",
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string"
+      },
+      "year": {
+        "type": "number"
+      },
+      "author": {
+        "type": "string",
+        "x-ref": "Person",
+        "description": "Refers to Person",
+        "format": "uuid",
+        "pattern": "^[0-9a-fA-F]{24}$"
+      },
+      "_id": {
+        "type": "string",
+        "format": "uuid",
+        "pattern": "^[0-9a-fA-F]{24}$"
+      },
+      "__v": {
+        "type": "number"
+      }
+    },
+    "required": [
+      "title",
+      "author"
+    ]
+  },
+  {
+    "id": "#person",
+    "title": "Person",
+    "type": "object",
+    "properties": {
+      "firstName": {
+        "type": "string"
+      },
+      "lastName": {
+        "type": "string"
+      },
+      "dateOfBirth": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "_id": {
+        "type": "string",
+        "format": "uuid",
+        "pattern": "^[0-9a-fA-F]{24}$"
+      },
+      "__v": {
+        "type": "number"
+      }
+    },
+    "required": [
+      "firstName",
+      "lastName"
+    ]
+  }
+]
+```
+
+Please consider the difference between result of `jsonschema-builder` call
+with in option `--dir` and without that option:
+
+```shell
+jsonschema-builder --json samples/models
+```
+
+The `jsonschema-builder` will search for module by path `samples/models` and
+without `--dir` option will find **samples/models.js** instead of **samples/models/**
+folder in case when `--dir` option specified
+
+Output:
+```javascript
+[
+  {
+    "id": "#point",
+    "title": "Point",
+    "type": "object",
+    "properties": {
+      "x": {
+        "type": "number"
+      },
+      "y": {
+        "type": "number"
+      },
+      "title": {
+        "type": "string"
+      },
+      "_id": {
+        "type": "string",
+        "format": "uuid",
+        "pattern": "^[0-9a-fA-F]{24}$"
+      },
+      "__v": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "id": "#line",
+    "title": "Line",
+    "type": "object",
+    "properties": {
+      "start": {
+        "title": "start",
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-fA-F]{24}$"
+          },
+          "__v": {
+            "type": "number"
+          }
+        }
+      },
+      "end": {
+        "title": "end",
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-fA-F]{24}$"
+          },
+          "__v": {
+            "type": "number"
+          }
+        }
+      },
+      "title": {
+        "type": "string"
+      },
+      "_id": {
+        "type": "string",
+        "format": "uuid",
+        "pattern": "^[0-9a-fA-F]{24}$"
+      },
+      "__v": {
+        "type": "number"
+      }
+    }
+  }
+]
+```
+
 ## Schema id
 
-Please note that `jsonschema-builder` adds the `id` field to each schema
+Please note that `jsonschema-builder` adds the `id` field to each schema. To
+avoid this behavior use `--noid` option.
 
-In the first case (exports as an object) the tool adds the `id` field to the
-resulting json schema. To avoid this behavior use `--noid` option.
+You could specify the style of `id` field. Currently supported the following
+options:
+ - `dash` (*default*) - creates `id` from `model.name` in dash-style (`model-name`)
+ - `underline` - entails the dash_style of `id` (`model_name`)
+ - `camel` - removes all underlines and dashes form the `model.name` and returns camelStyle `id` (modelName)
+ - `lower` - transforms all letters in `model.name` in the lower case analogs (modelname)
 
 
 ## API
 
-The tool is just a command line interface for node-module `mongoose-schema-jsonschema`.
-So you could to import mentioned above module to your project and use it directly.
+You can use `jsonschema-builder` inside of your code:
+```javascript
+'use strict';
 
+const jsonSchemaBuilder = require('jsonschema-builder');
+
+let schemas = jsonSchemaBuilder('samples', {
+  dir: true,
+  recursive: true,
+  json: true
+})
+```
+The result will be the same as you call `jsonschema-builder` via command-line:
 ```shell
-npm install mongoose-schema-jsonschema
+jsonschema-builder -jrd samples
+```
+
+### jsonSchemaBuilder
+Builds the json schema based on the Mongooose model definition specified by
+the path to appropriate module
+
+Declaration:
+```javascript
+function jsonSchemaBuilder(pathToModels, options) { ... }
+```
+
+Parameters:
+ - **pathToModels**: `String` -  the path to model definition(s)
+ - **options**: `Object` - the options for schema creation
+    - **noid**: `Boolean` - prevents `id`
+    - **json**: `Boolean` - entails the JSON-formated result
+    - **id**: `String` - defines the `id` field format
+    - **dir**: `Boolean` - enforces the function to consider `pathToModels` as a directory
+    - **recursive**: `Boolean` - enforces to find all models in `pathToModels` and in all its sub-dirctories
+ - *Returns* `Object`|`String` - json schema
+
+Methods:
+
+#### `extendMongoose`
+Extends the `mongoose.Model` and `mongoose.Schema` with method `jsonSchema` and
+returns `Mongoose` instance
+
+Declaration:
+```javascript
+function extendMongoose(mongoose) { ... }
+```
+
+In case you need to create json schema for `mongoose.Model` or `mongoose.Schema`
+instance you should use `mongoose-schema-jsonschema` module that is the core
+of `jsonschema-builder`.
+
+You can import core-module directly by its name or call `extendMongoose`
+method of `jsonSchemaBuilder` object;
+
+```javascript
+'use strict';
+
+const jsonSchemaBuilder = require('jsonschema-builder');
+const mongoose = jsonSchemaBuilder.extendMongoose(
+  require('mongoose')
+);
+
+const Book = require('samples/models/book');
+
+console.dir(Book.jsonSchema(), {depth: null});
+```
+
+Output:
+```shell
+{ title: 'Book',
+  type: 'object',
+  properties:
+   { title: { type: 'string' },
+     year: { type: 'number' },
+     author:
+      { type: 'string',
+        'x-ref': 'Person',
+        description: 'Refers to Person',
+        format: 'uuid',
+        pattern: '^[0-9a-fA-F]{24}$' },
+     _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+     __v: { type: 'number' } },
+  required: [ 'title', 'author' ] }
 ```
 
 More details by the link
 [mongoose-schema-jsonschema](https://www.npmjs.com/package/mongoose-schema-jsonschema)
+
+
+## Contribution
+Please register issues you met in the github-repository:
+[https://github.com/DScheglov/jsonschema-builder/issues](https://github.com/DScheglov/jsonschema-builder/issues)
+
+Also I'll be thankful for code review.
