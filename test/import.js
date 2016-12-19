@@ -78,6 +78,29 @@ describe('Import: processModels', function() {
 
   });
 
+  it('should process import array of models but return single schema if array contains only one model', function() {
+    let output = processModels('test/models/list-of-one-model', options);
+    assert.deepEqual(output, {
+      id: '#book',
+      title: 'Book',
+      type: 'object',
+      properties: {
+        title: { type: 'string' },
+        year: { type: 'number' },
+        author: {
+          type: 'string',
+          'x-ref': 'Person',
+          description: 'Refers to Person',
+          format: 'uuid',
+          pattern: '^[0-9a-fA-F]{24}$'
+        },
+        _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+        __v: { type: 'number' }
+      },
+      required: [ 'title', 'author' ]
+    });
+  });
+
   it('should import key-array of models', function() {
     let output = processModels('samples/models', {dir: false});
 

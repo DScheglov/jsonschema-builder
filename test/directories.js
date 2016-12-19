@@ -1,7 +1,9 @@
 'use strict';
 
 const assert = require('assert');
+const path = require('path');
 const processModels = require('../index');
+
 
 describe('Directory support: processModels', function() {
 
@@ -249,6 +251,45 @@ describe('Directory support: processModels', function() {
           _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
           __v: { type: 'number' }
         }
+      }
+    ]);
+  });
+
+  it('with option `--dir` should process directory by full path', function() {
+    let pathToModels = path.join(process.cwd(), 'samples/models');
+    let output = processModels(pathToModels, {dir: true});
+
+    assert.deepEqual(output, [
+      {
+        id: '#book',
+        title: 'Book',
+        type: 'object',
+        properties: {
+          title: { type: 'string' },
+          year: { type: 'number' },
+          author: {
+            type: 'string',
+            'x-ref': 'Person',
+            description: 'Refers to Person',
+            format: 'uuid',
+            pattern: '^[0-9a-fA-F]{24}$'
+          },
+          _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+          __v: { type: 'number' }
+        },
+        required: [ 'title', 'author' ]
+      }, {
+        id: '#person',
+        title: 'Person',
+        type: 'object',
+        properties: {
+          firstName: { type: 'string' },
+          lastName: { type: 'string' },
+          dateOfBirth: { type: 'string', format: 'date-time' },
+          _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+          __v: { type: 'number' }
+        },
+        required: [ 'firstName', 'lastName' ]
       }
     ]);
   });

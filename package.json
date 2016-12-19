@@ -7,7 +7,8 @@
     "jsonschema-builder": "./index.js"
   },
   "scripts": {
-    "test": "mocha"
+    "test-loc": "NODE_ENV=test istanbul cover _mocha -- -R spec",
+    "test": "./test.sh"
   },
   "keywords": [
     "json",
@@ -15,7 +16,10 @@
     "jsonschema",
     "json schema",
     "mongoose",
-    "model"
+    "model",
+    "command line interface",
+    "command line",
+    "cli"
   ],
   "author": "Dmitry Scheglov <Dmitry.Scheglov@gmail.com>",
   "license": "MIT",
@@ -25,6 +29,7 @@
     "mongoose-schema-jsonschema": "^1.0.3"
   },
   "devDependencies": {
+    "coveralls": "^2.11.15",
     "mocha": "^3.2.0",
     "mongoose": "^4.7.0"
   },
