@@ -1,3 +1,6 @@
+[![Build status](https://travis-ci.org/DScheglov/jsonschema-builder.svg?branch=master)](https://travis-ci.org/DScheglov/jsonschema-builder?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/DScheglov/jsonschema-builder/badge.svg?branch=master)](https://coveralls.io/github/DScheglov/jsonschema-builder?branch=master)
+
 # jsonschema-builder
 Command line tool to generate JSON-schemas by the Mongoose model definition
 
