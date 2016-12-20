@@ -135,12 +135,10 @@ Output:
         "type": "string",
         "x-ref": "Person",
         "description": "Refers to Person",
-        "format": "uuid",
         "pattern": "^[0-9a-fA-F]{24}$"
       },
       "_id": {
         "type": "string",
-        "format": "uuid",
         "pattern": "^[0-9a-fA-F]{24}$"
       },
       "__v": {
@@ -169,7 +167,6 @@ Output:
       },
       "_id": {
         "type": "string",
-        "format": "uuid",
         "pattern": "^[0-9a-fA-F]{24}$"
       },
       "__v": {
@@ -216,12 +213,10 @@ Opening `book.json`:
       "type": "string",
       "x-ref": "Person",
       "description": "Refers to Person",
-      "format": "uuid",
       "pattern": "^[0-9a-fA-F]{24}$"
     },
     "_id": {
       "type": "string",
-      "format": "uuid",
       "pattern": "^[0-9a-fA-F]{24}$"
     },
     "__v": {
@@ -270,12 +265,10 @@ Opening `models.json`:
         "type": "string",
         "x-ref": "Person",
         "description": "Refers to Person",
-        "format": "uuid",
         "pattern": "^[0-9a-fA-F]{24}$"
       },
       "_id": {
         "type": "string",
-        "format": "uuid",
         "pattern": "^[0-9a-fA-F]{24}$"
       },
       "__v": {
@@ -304,7 +297,6 @@ Opening `models.json`:
       },
       "_id": {
         "type": "string",
-        "format": "uuid",
         "pattern": "^[0-9a-fA-F]{24}$"
       },
       "__v": {
@@ -395,12 +387,10 @@ jsonschema-builder --dir --json samples/models
         "type": "string",
         "x-ref": "Person",
         "description": "Refers to Person",
-        "format": "uuid",
         "pattern": "^[0-9a-fA-F]{24}$"
       },
       "_id": {
         "type": "string",
-        "format": "uuid",
         "pattern": "^[0-9a-fA-F]{24}$"
       },
       "__v": {
@@ -429,7 +419,6 @@ jsonschema-builder --dir --json samples/models
       },
       "_id": {
         "type": "string",
-        "format": "uuid",
         "pattern": "^[0-9a-fA-F]{24}$"
       },
       "__v": {
@@ -474,7 +463,6 @@ Output:
       },
       "_id": {
         "type": "string",
-        "format": "uuid",
         "pattern": "^[0-9a-fA-F]{24}$"
       },
       "__v": {
@@ -502,7 +490,6 @@ Output:
           },
           "_id": {
             "type": "string",
-            "format": "uuid",
             "pattern": "^[0-9a-fA-F]{24}$"
           },
           "__v": {
@@ -525,7 +512,6 @@ Output:
           },
           "_id": {
             "type": "string",
-            "format": "uuid",
             "pattern": "^[0-9a-fA-F]{24}$"
           },
           "__v": {
@@ -538,7 +524,6 @@ Output:
       },
       "_id": {
         "type": "string",
-        "format": "uuid",
         "pattern": "^[0-9a-fA-F]{24}$"
       },
       "__v": {
