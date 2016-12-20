@@ -19,10 +19,9 @@ describe('Definitions support: processModels', function() {
             type: 'string',
             'x-ref': 'Person',
             description: 'Refers to Person',
-            format: 'uuid',
             pattern: '^[0-9a-fA-F]{24}$'
           },
-          _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+          _id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' },
           __v: { type: 'number' }
         },
         required: [ 'title', 'author' ]
@@ -50,7 +49,7 @@ describe('Definitions support: processModels', function() {
             enum: [ 'asset', 'liability', 'income', 'expense' ]
           },
           balance: { type: 'number' },
-          _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+          _id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' },
           __v: { type: 'number' }
         },
         required: [ 'title', 'accountType', 'balance' ]
@@ -64,19 +63,17 @@ describe('Definitions support: processModels', function() {
             type: 'string',
             'x-ref': 'Account',
             description: 'Refers to Account',
-            format: 'uuid',
             pattern: '^[0-9a-fA-F]{24}$'
           },
           credit: {
             type: 'string',
             'x-ref': 'Account',
             description: 'Refers to Account',
-            format: 'uuid',
             pattern: '^[0-9a-fA-F]{24}$'
           },
           amount: { type: 'number' },
           details: { type: 'string' },
-          _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+          _id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' },
           __v: { type: 'number' }
         },
         required: [ 'debit', 'credit', 'amount' ]
@@ -92,10 +89,9 @@ describe('Definitions support: processModels', function() {
             type: 'string',
             'x-ref': 'Person',
             description: 'Refers to Person',
-            format: 'uuid',
             pattern: '^[0-9a-fA-F]{24}$'
           },
-          _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+          _id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' },
           __v: { type: 'number' }
         },
         required: [ 'title', 'author' ]
@@ -108,7 +104,7 @@ describe('Definitions support: processModels', function() {
           firstName: { type: 'string' },
           lastName: { type: 'string' },
           dateOfBirth: { type: 'string', format: 'date-time' },
-          _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+          _id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' },
           __v: { type: 'number' }
         },
         required: [ 'firstName', 'lastName' ]
@@ -121,7 +117,7 @@ describe('Definitions support: processModels', function() {
           x: { type: 'number' },
           y: { type: 'number' },
           title: { type: 'string' },
-          _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+          _id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' },
           __v: { type: 'number' }
         }
       },
@@ -137,7 +133,7 @@ describe('Definitions support: processModels', function() {
               x: { type: 'number' },
               y: { type: 'number' },
               title: { type: 'string' },
-              _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+              _id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' },
               __v: { type: 'number' }
             }
           },
@@ -148,12 +144,12 @@ describe('Definitions support: processModels', function() {
               x: { type: 'number' },
               y: { type: 'number' },
               title: { type: 'string' },
-              _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+              _id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' },
               __v: { type: 'number' }
             }
           },
           title: { type: 'string' },
-          _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+          _id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' },
           __v: { type: 'number' }
         }
       }

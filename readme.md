@@ -96,9 +96,8 @@ Output:
         { type: 'string',
           'x-ref': 'Person',
           description: 'Refers to Person',
-          format: 'uuid',
           pattern: '^[0-9a-fA-F]{24}$' },
-       _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+       _id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' },
        __v: { type: 'number' } },
     required: [ 'title', 'author' ] },
   { id: '#person',
@@ -108,7 +107,7 @@ Output:
      { firstName: { type: 'string' },
        lastName: { type: 'string' },
        dateOfBirth: { type: 'string', format: 'date-time' },
-       _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+       _id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' },
        __v: { type: 'number' } },
     required: [ 'firstName', 'lastName' ] } ]
 ```
@@ -367,9 +366,8 @@ Output:
       { type: 'string',
         'x-ref': 'Person',
         description: 'Refers to Person',
-        format: 'uuid',
         pattern: '^[0-9a-fA-F]{24}$' },
-     _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+     _id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' },
      __v: { type: 'number' } },
   required: [ 'title', 'author' ] }
 ```
@@ -644,9 +642,8 @@ Output:
       { type: 'string',
         'x-ref': 'Person',
         description: 'Refers to Person',
-        format: 'uuid',
         pattern: '^[0-9a-fA-F]{24}$' },
-     _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+     _id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' },
      __v: { type: 'number' } },
   required: [ 'title', 'author' ] }
 ```

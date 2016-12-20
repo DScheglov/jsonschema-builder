@@ -19,10 +19,9 @@ describe('Import: processModels', function() {
           type: 'string',
           'x-ref': 'Person',
           description: 'Refers to Person',
-          format: 'uuid',
           pattern: '^[0-9a-fA-F]{24}$'
         },
-        _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+        _id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' },
         __v: { type: 'number' }
       },
       required: [ 'title', 'author' ]
@@ -44,7 +43,7 @@ describe('Import: processModels', function() {
             enum: [ 'asset', 'liability', 'income', 'expense' ]
           },
           balance: { type: 'number' },
-          _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+          _id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' },
           __v: { type: 'number' }
         },
         required: [ 'title', 'accountType', 'balance' ]
@@ -57,19 +56,19 @@ describe('Import: processModels', function() {
             type: 'string',
             'x-ref': 'Account',
             description: 'Refers to Account',
-            format: 'uuid',
+
             pattern: '^[0-9a-fA-F]{24}$'
           },
           credit: {
             type: 'string',
             'x-ref': 'Account',
             description: 'Refers to Account',
-            format: 'uuid',
+
             pattern: '^[0-9a-fA-F]{24}$'
           },
           amount: { type: 'number' },
           details: { type: 'string' },
-          _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+          _id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' },
           __v: { type: 'number' }
         },
         required: [ 'debit', 'credit', 'amount' ]
@@ -91,10 +90,10 @@ describe('Import: processModels', function() {
           type: 'string',
           'x-ref': 'Person',
           description: 'Refers to Person',
-          format: 'uuid',
+
           pattern: '^[0-9a-fA-F]{24}$'
         },
-        _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+        _id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' },
         __v: { type: 'number' }
       },
       required: [ 'title', 'author' ]
@@ -113,7 +112,7 @@ describe('Import: processModels', function() {
           x: { type: 'number' },
           y: { type: 'number' },
           title: { type: 'string' },
-          _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+          _id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' },
           __v: { type: 'number' }
         }
       }, {
@@ -128,7 +127,7 @@ describe('Import: processModels', function() {
               x: { type: 'number' },
               y: { type: 'number' },
               title: { type: 'string' },
-              _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+              _id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' },
               __v: { type: 'number' }
             }
           },
@@ -139,12 +138,12 @@ describe('Import: processModels', function() {
               x: { type: 'number' },
               y: { type: 'number' },
               title: { type: 'string' },
-              _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+              _id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' },
               __v: { type: 'number' }
             }
           },
           title: { type: 'string' },
-          _id: { type: 'string', format: 'uuid', pattern: '^[0-9a-fA-F]{24}$' },
+          _id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' },
           __v: { type: 'number' }
         }
       }
